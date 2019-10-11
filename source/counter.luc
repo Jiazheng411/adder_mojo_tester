@@ -1,0 +1,28 @@
+module mycounter (
+    input clk,  // clock
+    input rst,  // reset
+    
+    output a, //adder a
+    output b, //adder b
+    output ci //adder ci
+  ) {
+    sig myclk;
+  
+   dff mycounter[30](.clk(myclk),.rst(rst));
+   dff stopper(.clk(clk),.rst(rst));
+
+  always {
+    a = mycounter.q[28];
+    b = mycounter.q[27];
+    ci = mycounter.q[26];
+    stopper.d = mycounter.q[29];
+    
+    if(stopper.q == 1){
+    myclk = 0;
+    }else{
+    myclk=clk;
+    }
+    
+    mycounter.d = mycounter.q + 1;
+  }
+}
