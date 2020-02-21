@@ -1,4 +1,4 @@
-# best_adder_mojo_tester
+# adder_mojo_tester
 This FPGA project is used to test the 1-bit full adder created for 50.002 1D mini hardware project, it has two modes: automated testing mode and manual testing mode
 
 
